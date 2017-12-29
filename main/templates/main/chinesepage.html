@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container">
+<h1> Translation </h1>
+
+	{% for chapter in chapters %}
+		<hr>
+		<h2>Chapter {{chapter.order}}</h2>
+		{% for sentence in chapter.sentence_set.all %}
+		<hr>
+		<div class="row">
+		<span class="text-danger">{{sentence.pk}}:</span> {{ sentence.Chinese|linebreaks }}
+		</div>
+		{% endfor %}
+	{% endfor %}	
+</div>
+{% endblock %}
